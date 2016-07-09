@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20160709154014) do
     t.string   "author_id"
     t.text     "path"
     t.binary   "file"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

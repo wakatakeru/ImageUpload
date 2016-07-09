@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
   def index
-    @imgs = Image.all
+    @imgs = Image.limit(15)
   end
 
   def show
@@ -17,11 +17,11 @@ class ImagesController < ApplicationController
 
     if actionfile != nil
       imgcontent = actionfile.read
-      img.path = "public/img/#{Time.now.to_i}_#{img.title}"
+      img.path = "/img/#{Time.now.to_i}.jpg"
     
       img.title  = params['image']['title']
     
-      File.open("public/img/#{Time.now.to_i}_#{img.title}", "wb") do |f|
+      File.open("public/img/#{Time.now.to_i}.jpg", "wb") do |f|
         f.write(imgcontent)
       end
     end

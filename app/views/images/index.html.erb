@@ -14,7 +14,7 @@
       <h3><%= item.title %></h3>
     </div>
     <div>
-      <%= "画像 #{item.path}"  %>
+      <%= image_tag "#{item.path}", :width => '256' %>
     </div>
     <div>
       <small><%= "作成者 #{item.author_id} #{item.updated_at}" %></small>
