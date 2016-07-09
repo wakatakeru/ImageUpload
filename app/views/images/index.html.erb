@@ -1,1 +1,25 @@
-<h1>画像の一覧ページ</h1>
+<div align="center">
+  <h1>ImageUpload :: Main</h1>
+</div>
+<div class="container-fluid" style="padding: 10px 20px 10px 20px">
+  <%= link_to '画像を新規投稿する', new_image_path, class: "btn btn-primary btn-lg btn-block"%>
+</div>
+<div class="container-fluid" style="padding: 10px 20px 10px 20px">
+  <%= link_to 'Myページ', users_path, class: "btn btn-success btn-lg btn-block"%>
+</div>
+<div class="container-fluid" style="padding: 20px 10px 15px 20px">
+  <div>
+    <% @imgs.each do |item| %>
+    <div>
+      <h3><%= item.title %></h3>
+    </div>
+    <div>
+      <%= image_tag "#{item.path}", :width => '256' %>
+    </div>
+    <div>
+      <small><%= "作成者 #{item.author_id} #{item.updated_at}" %></small>
+    </div>
+    <hr />
+    <% end %>
+  </div>
+</div>
