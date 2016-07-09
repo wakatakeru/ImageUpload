@@ -13,7 +13,7 @@ class ImagesController < ApplicationController
   def create
     img = Image.new
     img.title = params['image']['title']
-    img.path  = params['image']['path']
+    img.file  = params['image']['file']
     img.save      
     redirect_to images_path
   end

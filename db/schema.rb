@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 20160709154014) do
   create_table "images", force: :cascade do |t|
     t.string   "title"
     t.string   "author_id"
-    t.datetime "date"
     t.text     "path"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.binary   "file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
