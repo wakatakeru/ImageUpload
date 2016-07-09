@@ -12,8 +12,20 @@ class ImagesController < ApplicationController
 
   def create
     img = Image.new
-    img.title = params['image']['title']
-    img.file  = params['image']['file']
+    actionfile = params['image']['file']
+    content = {}
+
+    if actionfile != nil
+      imgcontent = actionfile.read
+      img.path = "public/img/#{Time.now.to_i}_#{img.title}"
+    
+      img.title  = params['image']['title']
+    
+      File.open("public/img/#{Time.now.to_i}_#{img.title}", "wb") do |f|
+        f.write(imgcontent)
+      end
+    end
+    
     img.save      
     redirect_to images_path
   end

@@ -1,9 +1,7 @@
-
-<h1>画像の新規投稿</h1>
-
-
-
-<div class="container-fluid bg-info" style="padding: 20px 10px 15px 20px">
+<div align="center">
+  <h1>ImageUpload :: Post</h1>
+</div>
+<div class="container-fluid" style="padding: 10px 20px 10px 20px">
   <%= form_for @img do |f| %>
   <div style="margin: 10px 0px 10px 0px">
     <h4>タイトル</h4>
@@ -13,7 +11,7 @@
     <h4>画像</h4>
     <%= f.file_field :file, accept: "image/jpeg" %>
   </div>
-  <div class="container-fluid bg-info" style="padding: 20px 10px 15px 20px">
+  <div class="container-fluid" style="padding: 20px 10px 15px 20px">
     <%= f.submit :value => "投稿", :class => "btn btn-primary btn-lg btn-block" %>
   </div>
     <div class="container-fluid" style="padding: 20px 10px 15px 20px">
