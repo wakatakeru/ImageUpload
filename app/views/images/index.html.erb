@@ -25,7 +25,7 @@
       <%= image_tag "#{item.path}", :width => '256' %>
     </div>
     <div>
-      <small><%= "作成者:#{User.find(item.author_id)[:login_id]}" %></small>
+      <small><%= link_to "#{User.find(item.author_id)[:login_id]}", user_path(item.author_id) %></small>
     </div>
     <div>
       <small><%= "#{item.updated_at}" %></small>
