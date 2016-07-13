@@ -18,13 +18,9 @@ class UsersController < ApplicationController
 
     redirect_to images_path
   end
-
-  def login
-    
-  end
   
   def show
-    @user = "ほげほげ"
+
   end
   
 end
