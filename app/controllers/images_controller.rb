@@ -5,6 +5,8 @@ class ImagesController < ApplicationController
   end
 
   def show
+    @sessionid = session[:user_id]
+    @usersimg = Image.find_by_author_id(:all, @sessionid)
   end
   
   def new
@@ -26,6 +28,8 @@ class ImagesController < ApplicationController
         f.write(imgcontent)
       end
     end
+
+    img.author_id = session[:user_id]
     
     img.save      
     redirect_to images_path
