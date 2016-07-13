@@ -27,7 +27,7 @@
       <%= link_to image_tag("#{item.thumbnail_path}"), image_path(item.id)%>
     </div>
     <div>
-      <small><%= link_to "#{User.find(item.author_id)[:login_id]}", user_path(item.author_id) %></small>
+      <small>Posted by <%= link_to "#{User.find(item.author_id)[:login_id]}", user_path(item.author_id) %></small>
     </div>
     <div>
       <small><%= "#{item.updated_at}" %></small>
