@@ -1,0 +1,39 @@
+<div align="center">
+  <h1>ImageUpload :: UserEdit</h1>
+  <h3>ユーザの情報を変更します</h3>
+  <h5>* は必須項目です</h5>
+  <h4><font color="red"><strong><%= notice %></strong></font></h4>
+</div>
+<div class="container-fruid" style="padding: 10px 20px 10px 20px">
+  <%= form_for @user do |f| %>
+    <div style="margin: 10px 0px 10px 0px">
+      <h4>* ログインID<small>(記号、かな漢字は使えません)</small></h4>
+      <%= f.text_field :login_id, :class => "form-control", :placeholder => "英数字のみ(他ユーザと重複するとエラーになります)" %>
+    </div>
+
+    <div style="margin: 10px 0px 10px 0px">
+      <h4>* メールアドレス<small>(英数字と記号のみです)</small></h4>
+      <%= f.text_field :email, :class => "form-control", :placeholder => "英数字と記号のみ" %>
+    </div>
+
+    <div style="margin: 10px 0px 10px 0px">
+      <h4>パスワード<small>(空白の場合、更新されません)</small></h4>
+      <%= f.password_field :password, :class => "form-control", :placeholder => "英数字のみ, 大文字小文字は区別されます" %>
+    </div>
+    
+    <div style="margin: 10px 0px 10px 0px">
+      <h4>紹介メッセージ</h4>
+      <%= f.text_area :bio, :class => "form-control", :rows => "5"%>
+    </div>
+
+    
+    <div class="container-fruid" style="padding: 10px 20px 10px 20px">
+    <%= f.submit "更新", :class => "btn btn-primary btn-lg btn-block", data: {confirm: "情報を更新します。よろしいですか？"} %>
+    </div>
+    
+  <% end %>
+    <div class="container-fruid" style="padding: 10px 20px 10px 20px">
+    <%= link_to "変更を破棄して戻る", user_path(params[:id]), :class => "btn btn-danger btn-lg btn-block", data: {confirm: "変更は破棄されます。よろしいですか？"} %>
+    </div>
+
+</div>
