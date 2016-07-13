@@ -1,8 +1,30 @@
 <div align="center">
   <div>
-    <h1>ImageUpload :: MyPage</h1>
-    <h3>ようこそ<%= @user %> さん!</h3>
-    <h1>このページは作成中です</h1>
+    <h1>ImageUpload :: UserList</h1>
+  </div>
+  <div style="margin: 20px 70px 10px 70px">
+    <table class="table">
+      <tread>
+        <tr>
+          <th>ユーザID</th>
+          <th>ログインID</th>
+          <th>メールアドレス</th>
+          <th>権限</th>
+        </tr>
+      </tread>
+        <% @users.each do |f| %>
+          <tbody>
+            <td><%= f.id %></td>
+            <td><%= f.login_id %></td>
+            <td><%= f.email %></td>
+            <% if f.is_admin != nil %>
+              <td><%= "あり" %></td>
+            <% else %>
+              <td><%= "なし" %></td>
+            <% end %>
+          </tbody>
+        <% end %>
+    </table>
   </div>
   <div class="container-fluid" style="padding: 10px 20px 10px 20px">
     <%= link_to '一覧表示へ戻る', images_path, class: "btn btn-success btn-lg btn-block" %>
