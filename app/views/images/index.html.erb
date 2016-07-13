@@ -1,5 +1,6 @@
 <div align="center">
   <h1>ImageUpload :: Main</h1>
+  <h4><font color="red"><strong><%= notice %></strong></font></h4>
 </div>
 
   <% if current_user != nil %>
@@ -18,7 +19,7 @@
   <% end %>
 <div class="container-fluid" style="padding: 20px 10px 15px 20px">
   <div align="center">
-    <% @imgs.each do |item| %>
+    <% @imgs.reverse_each do |item| %>
     <div>
       <h3><%= item.title %></h3>
     </div>

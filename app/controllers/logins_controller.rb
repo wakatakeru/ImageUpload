@@ -13,7 +13,7 @@ class LoginsController < ApplicationController
     user = User.find_by_login_id(params[:login_id])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to images_path
+      redirect_to images_path, :notice => "ログインに成功しました。"
     else
       redirect_to root_path, :notice => "認証エラー。 IDまたはパスワードが違います。"
     end

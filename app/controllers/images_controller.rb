@@ -45,9 +45,9 @@ class ImagesController < ApplicationController
     img.author_id = session[:user_id]
     
     if img.save      
-      redirect_to images_path
+      redirect_to images_path, :notice => "投稿に成功しました。"
     else
-      redirect_to new_image_path, :notice => "投稿内容に不備があります"
+      redirect_to new_image_path, :notice => "投稿内容に不備があります。"
     end
   end
 
