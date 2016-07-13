@@ -2,11 +2,7 @@
 class UsersController < ApplicationController
 
   def index
-<<<<<<< HEAD
     @users = User.all
-=======
-    @user = User.all
->>>>>>> 727ba3fde0d7823374f28d858e4b27f8c72ebfa5
   end
 
   def show
