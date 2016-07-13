@@ -1,0 +1,23 @@
+<div align="center">
+  <h1>ImageUpload :: Login</h1>
+  <h4><font color="red"><strong><%= flash[:alert] %></strong></font></h4>
+</div>
+<div class="container-fruid" style="padding: 10px 20px 10px 20px" align="center">
+  <%= form_tag login_path do %>
+    <div style="margin: 10px 0px 10px 0px">
+      <h4>ログインID</h4>
+      <%= text_field_tag :login_id, params[:login_id], :class => "form-control", :placeholder => "ログインID(英数字のみ)" %>
+    </div>
+
+    <div style="margin: 10px 0px 10px 0px">
+      <h4>パスワード</h4>
+      <%= password_field_tag :password, params[:password], :class => "form-control", :placeholder => "パスワード(英数字のみ)" %>
+    </div>
+    
+    <div class="container-fruid" style="padding: 20px 10px 15px 20px">
+    <%= submit_tag "ログイン", :class => "btn btn-primary btn-lg btn-block" %>
+    </div>
+    
+  <% end %>
+</div>
+
