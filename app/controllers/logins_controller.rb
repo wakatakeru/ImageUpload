@@ -9,7 +9,7 @@ class LoginsController < ApplicationController
   end
 
   def create
-    user = User.find_by_name(params[:login_id])
+    user = User.find_by_login_id(params[:login_id])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to root_path

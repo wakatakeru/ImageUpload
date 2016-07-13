@@ -8,7 +8,7 @@
   <%= form_for @user do |f| %>
     <div style="margin: 10px 0px 10px 0px">
       <h4>* ログインID</h4>
-      <%= f.text_field :login_id, :class => "form-control", :placeholder => "他ユーザと重複するとエラーになります" %>
+      <%= f.text_field :login_id, :class => "form-control", :placeholder => "英数字のみ(他ユーザと重複するとエラーになります)" %>
     </div>
 
     <div style="margin: 10px 0px 10px 0px">

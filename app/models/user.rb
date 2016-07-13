@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
 
   validates :login_id,
             presence: true,
-            uniqueness: true
+            uniqueness: true,
+            format: { with: /\A[a-z0-9]+\z/i }
   
   validates :email,
             presence: true

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'images#index'
-  resources :login, only: %i{show create destroy}
+  resource  :login, only: %i{show create destroy}
   resources :users
   resources :images
   # The priority is based upon order of creation: first created -> highest priority.
