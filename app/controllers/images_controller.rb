@@ -1,3 +1,4 @@
+# coding: utf-8
 class ImagesController < ApplicationController
   def index
     @imgs = Image.limit(15)
@@ -31,7 +32,10 @@ class ImagesController < ApplicationController
 
     img.author_id = session[:user_id]
     
-    img.save      
-    redirect_to images_path
+    if img.save      
+      redirect_to images_path
+    else
+      redirect_to new_image_path, :notice => "投稿内容に不備があります"
+    end
   end
 end
