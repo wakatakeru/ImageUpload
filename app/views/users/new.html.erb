@@ -1,0 +1,28 @@
+<div align="center">
+  <h1>ImageUpload :: Welcome</h1>
+  <h3>新規のユーザを作成します</h3>
+</div>
+<div class="container-fruid" style="padding: 10px 20px 10px 20px">
+  <%= form_for @user do |f| %>
+    <div style="margin: 10px 0px 10px 0px">
+      <h4>ログインID</h4>
+      <%= f.text_field :login_id, :class => "form-control" %>
+    </div>
+
+    <div style="margin: 10px 0px 10px 0px">
+      <h4>メールアドレス</h4>
+      <%= f.text_field :email, :class => "form-control" %>
+    </div>
+
+    <div style="margin: 10px 0px 10px 0px">
+      <h4>パスワード</h4>
+      <%= f.password_field :password, :class => "form-control" %>
+    </div>
+
+    <div class="container-fruid" style="padding: 20px 10px 15px 20px">
+    <%= f.submit "登録", :class => "btn btn-primary btn-lg btn-block", data: {confirm: "ユーザ登録します。よろしいですか？"} %>
+    </div>
+    
+  <% end %>
+</div>
+

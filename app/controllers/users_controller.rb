@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     @user = "ほげほげ"
   end
 
+  def new
+    @user = User.new
+  end
+  
   def show
     @user = "ほげほげ"
   end
