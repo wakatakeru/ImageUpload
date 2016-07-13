@@ -7,10 +7,18 @@ class UsersController < ApplicationController
 
   def show
     @param = params[:id]
+    @userimg = Array.new
     @params = @param.to_i
     @user = User.find(@params)
     @username = @user['login_id']
     @userbio  = @user['bio']
+
+    Image.all.each do |item|
+      if item[:author_id] == @param 
+        @userimg.push(item)
+      end
+    end
+    
   end
     
   def new
@@ -24,8 +32,7 @@ class UsersController < ApplicationController
     user.password = params['user']['password']
     user.bio      = params['user']['bio']
     if user.save
-      # 将来的にログインページに飛ばす
-      redirect_to images_path
+      redirect_to login_path
     else
       redirect_to new_user_path, :notice => "入力内容に不備があります"
     end

@@ -1,10 +1,39 @@
 <div align="center">
   <div>
-    <h1>ImageUpload :: Mypage</h1>
-    <h3><%= @username %> さんのマイページ</h3>
+    <h1>ImageUpload :: User</h1>
+    <h3><%= @username %> さんのMyページ</h3>
     <hr>
     <p><%= @userbio %></p>
+    <hr>
+
+    <div style="margin: 20px 70px 10px 70px">
+      <h4>投稿作品</h4>
+      <table class="table">
+        <tread>
+          <th>作品ID</th>
+          <th>タイトル</th>
+          <th>投稿日時</th>
+        </tread>
+        <tbody>
+          <% if @userimg != nil %>
+            <% @userimg.each do |f| %>
+            <td><%= f[:id] %></td>
+            <td><%= link_to "#{f[:title]}", f[:path] %></td>
+            <td><%= f[:updated_at] %></td>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    
   </div>
   <div class="container-fluid" style="padding: 10px 20px 10px 20px">
     <%= link_to '一覧表示へ戻る', images_path, class: "btn btn-success btn-lg btn-block" %>
+  </div>
+  
+  <div class="container-fluid" style="padding: 10px 20px 10px 20px">
+    <%= link_to 'ログアウトする', login_path, class: "btn btn-danger btn-lg btn-block", data: { :confirm => 'ログアウトします。よろしいですか？' }, :method => :delete %>
+  </div>
+
+
 </div>

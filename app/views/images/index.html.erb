@@ -12,7 +12,7 @@
       <%= link_to '画像を新規投稿する', new_image_path, class: "btn btn-primary btn-lg btn-block"%>
     </div>
     <div class="container-fluid" style="padding: 10px 20px 10px 20px">
-      <%= link_to 'Myページ', users_path, class: "btn btn-success btn-lg btn-block"%>
+      <%= link_to 'Myページ', user_path(@userid), class: "btn btn-success btn-lg btn-block"%>
     </div>
   <% end %>
 <div class="container-fluid" style="padding: 20px 10px 15px 20px">
@@ -25,7 +25,10 @@
       <%= image_tag "#{item.path}", :width => '256' %>
     </div>
     <div>
-      <small><%= "作成者 #{item.author_id} #{item.updated_at}" %></small>
+      <small><%= link_to "#{User.find(item.author_id)[:login_id]}", user_path(item.author_id) %></small>
+    </div>
+    <div>
+      <small><%= "#{item.updated_at}" %></small>
     </div>
     <hr />
     <% end %>
