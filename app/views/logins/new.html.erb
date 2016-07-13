@@ -1,0 +1,29 @@
+<div align="center">
+  <h1>ImageUpload :: Login</h1>
+  <h4><font color="red"><strong><%= flash[:alert] %></strong></font></h4>
+</div>
+<div class="container-fruid" style="padding: 10px 20px 10px 20px" align="center">
+  <%= form_tag login_path do %>
+    <div style="margin: 10px 0px 10px 0px">
+      <h4>ログインID</h4>
+      <%= f.text_field_tag :login_id, params[:login_id] %>
+    </div>
+
+    <div style="margin: 10px 0px 10px 0px">
+      <h4>パスワード</h4>
+      <%= f.password_field_tag :password, params[:password] %>
+    </div>
+
+    <div style="margin: 10px 0px 10px 0px">
+      <h4>紹介メッセージ</h4>
+      <%= f.text_area :bio, :class => "form-control", :rows => "5"%>
+    </div>
+
+    
+    <div class="container-fruid" style="padding: 20px 10px 15px 20px">
+    <%= f.submit "登録", :class => "btn btn-primary btn-lg btn-block", data: {confirm: "ユーザ登録します。よろしいですか？"} %>
+    </div>
+    
+  <% end %>
+</div>
+
