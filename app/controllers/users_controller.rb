@@ -40,6 +40,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    user = User.find(params[:id])
+    if user.update(
+         login_id: params['user']['login_id'],
+         email:    params['user']['email'],
+         password: params['user']['password'],
+         bio:      params['user']['bio']
+       )
+      redirect_to images_path, :notice => "ユーザ情報は正常に更新されました。"
+    else
+      @user = user
+      redirect_to edit_user_path, :notice => "ユーザ情報の更新に失敗しました。入力内容に不備があります。"
+    end
+  end
+
+  private
+  
   def login_check
     is_login
   end

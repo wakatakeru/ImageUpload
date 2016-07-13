@@ -11,6 +11,14 @@ class User < ActiveRecord::Base
   
   validates :password,
             presence: true,
-            format: { with: /\A[a-z0-9]+\z/i }
-  
+            format: { with: /\A[a-z0-9]+\z/i },
+            confirmation: true,
+            on: :create
+
+  private
+
+  def validate_password?
+    password.present? || password_confirmation.present?
+  end
+
 end
