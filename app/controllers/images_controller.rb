@@ -18,11 +18,11 @@ class ImagesController < ApplicationController
 
     if actionfile != nil
       imgcontent = actionfile.read
-      img.path = "/img/#{Time.now.to_i}.jpg"
+      img.path = "/img/#{Time.now.to_i}_#{session[:user_id]}.jpg"
     
       img.title  = params['image']['title']
     
-      File.open("public/img/#{Time.now.to_i}.jpg", "wb") do |f|
+      File.open("public/img/#{Time.now.to_i}_#{session[:user_id]}.jpg", "wb") do |f|
         f.write(imgcontent)
       end
     end
