@@ -6,8 +6,10 @@ class ImagesController < ApplicationController
   end
 
   def show
+=begin
     @sessionid = session[:user_id]
-    @usersimg = Image.find_by_author_id(:all, @sessionid)
+    @usersimg = Image.find_by_author_id(@sessionid)
+=end
   end
   
   def new

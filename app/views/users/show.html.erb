@@ -1,7 +1,7 @@
 <div align="center">
   <div>
-    <h1>ImageUpload :: Mypage</h1>
-    <h3><%= @username %> さんのマイページ</h3>
+    <h1>ImageUpload :: User</h1>
+    <h3><%= @username %> さんのMyページ</h3>
     <hr>
     <p><%= @userbio %></p>
     <hr>
@@ -17,9 +17,9 @@
         <tbody>
           <% if @userimg != nil %>
             <% @userimg.each do |f| %>
-            <td><%= f.id %></td>
-            <td><%= f.title %></td>
-            <td><%= f.date %></td>
+            <td><%= f[:id] %></td>
+            <td><%= link_to "#{f[:title]}", f[:path] %></td>
+            <td><%= f[:updated_at] %></td>
             <% end %>
           <% end %>
         </tbody>
@@ -32,7 +32,7 @@
   </div>
   
   <div class="container-fluid" style="padding: 10px 20px 10px 20px">
-    <%= link_to 'ログアウトする', login_path, class: "btn btn-danger btn-lg btn-block", :confirm => 'ログアウトします。よろしいですか？', :method => :delete %>
+    <%= link_to 'ログアウトする', login_path, class: "btn btn-danger btn-lg btn-block", data: { :confirm => 'ログアウトします。よろしいですか？' }, :method => :delete %>
   </div>
 
 

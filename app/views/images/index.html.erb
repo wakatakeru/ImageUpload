@@ -25,7 +25,10 @@
       <%= image_tag "#{item.path}", :width => '256' %>
     </div>
     <div>
-      <small><%= "作成者 #{item.author_id} #{item.updated_at}" %></small>
+      <small><%= "作成者:#{User.find(item.author_id)[:login_id]}" %></small>
+    </div>
+    <div>
+      <small><%= "#{item.updated_at}" %></small>
     </div>
     <hr />
     <% end %>
