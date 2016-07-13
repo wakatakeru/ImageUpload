@@ -13,7 +13,10 @@ class ImagesController < ApplicationController
   end
 
   def show
-    @img = Image.find_by_id(params[:id])
+    imgid = params[:id]
+    @img = Image.find_by_id(imgid)
+    @author_id  = @img.author_id.to_i
+    @session_id = session[:user_id]
   end
   
   def new
@@ -51,6 +54,32 @@ class ImagesController < ApplicationController
     end
   end
 
+  def edit
+    @img = Image.find(params[:id])
+  end
+
+  def update
+    img = Image.find(params[:id])
+    if img.update(
+         title: params['image']['title']
+       )
+      redirect_to images_path, :notice => "画像情報は正常に更新されました"
+    else
+      @img = img
+      redirect_to edit_image_path, :notice => "画像情報の更新に失敗しました。入力内容に不備があります。"
+    end
+
+  end
+
+  def destroy
+    img = Image.find(params[:id])
+    if img.destroy
+      redirect_to images_path, :notice => "画像は正常に削除されました。"
+    else
+      redirect_to root_path, :notice => "画像は削除されません。"
+    end
+  end
+    
   def login_check
     is_login
   end

@@ -14,7 +14,9 @@ class UsersController < ApplicationController
     @user = User.find(@params)
     @username = @user['login_id']
     @userbio  = @user['bio']
-
+    @session_id = session[:user_id]
+    @user_id    = @params
+    
     Image.all.each do |item|
       if item[:author_id] == @param 
         @userimg.push(item)
