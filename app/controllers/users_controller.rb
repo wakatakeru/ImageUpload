@@ -2,7 +2,7 @@
 class UsersController < ApplicationController
 
   def index
-    @user = "ほげほげ"
+    @user = User.all
   end
 
   def new
