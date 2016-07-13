@@ -4,7 +4,9 @@ class CreateImages < ActiveRecord::Migration
       t.string :title
       t.string :author_id
       t.text :path
+      t.text :thumbnail_path
       t.binary :file
+      t.binary :thumbnail_file
       t.timestamps null: false
     end
   end

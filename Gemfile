@@ -49,3 +49,6 @@ end
 gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
+
+# RMagick
+gem 'rmagick', :require => 'RMagick'
