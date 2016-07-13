@@ -1,6 +1,7 @@
 class ImagesController < ApplicationController
   def index
     @imgs = Image.limit(15)
+    @userid = session[:user_id]
   end
 
   def show
