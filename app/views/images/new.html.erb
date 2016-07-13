@@ -11,10 +11,10 @@
     <h4>画像</h4>
     <%= f.file_field :file, accept: "image/jpeg" %>
   </div>
-  <div class="container-fluid" style="padding: 20px 10px 15px 20px">
+  <div class="container-fluid" style="padding: 10px 20px 10px 20px">
     <%= f.submit :value => "投稿", :class => "btn btn-primary btn-lg btn-block" %>
   </div>
-    <div class="container-fluid" style="padding: 20px 10px 15px 20px">
+    <div class="container-fluid" style="padding: 10px 20px 10px 20px">
   <%= link_to '一覧表示へ戻る', images_path, class: "btn btn-danger btn-lg btn-block", data: {confirm: "変更は破棄されます。よろしいですか？"} %>
     </div>
   <% end %>
