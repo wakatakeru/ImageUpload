@@ -23,9 +23,12 @@ class UsersController < ApplicationController
     user.email    = params['user']['email']
     user.password = params['user']['password']
     user.bio      = params['user']['bio']
-    user.save
-
-    redirect_to images_path
+    if user.save
+      # 将来的にログインページに飛ばす
+      redirect_to images_path
+    else
+      redirect_to new_user_path, :notice => "入力内容に不備があります"
+    end
   end
   
 end

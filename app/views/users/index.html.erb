@@ -15,7 +15,7 @@
         <% @users.each do |f| %>
           <tbody>
             <td><%= f.id %></td>
-            <td><%= f.login_id %></td>
+            <td><%= link_to "#{f.login_id}", {:action => :show, :id => f.id} %></td>
             <td><%= f.email %></td>
             <% if f.is_admin != nil %>
               <td><%= "あり" %></td>
