@@ -1,6 +1,8 @@
 # coding: utf-8
 class UsersController < ApplicationController
 
+  before_filter :login_check, :except => ['new', 'create']
+  
   def index
     @users = User.all
   end
@@ -32,10 +34,14 @@ class UsersController < ApplicationController
     user.password = params['user']['password']
     user.bio      = params['user']['bio']
     if user.save
-      redirect_to login_path
+      redirect_to login_path, :notice => "正常に登録しました！"
     else
-      redirect_to new_user_path, :notice => "入力内容に不備があります"
+      redirect_to new_user_path, :notice => "入力内容に不備がありました。もう一度入力してください。"
     end
+  end
+
+  def login_check
+    is_login
   end
   
 end

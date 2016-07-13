@@ -9,6 +9,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def is_login
+    if session[:user_id] == nil
+      redirect_to root_path
+    end
+  end
+  
   helper_method :current_user
   
 end

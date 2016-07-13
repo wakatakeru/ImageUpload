@@ -3,16 +3,17 @@ require 'bundler'
 Bundler.require
 
 class ImagesController < ApplicationController
+
+  before_action :login_check
+
   def index
-    @imgs = Image.limit(15)
+    @imgs = Image.all
     @userid = session[:user_id]
+    # redirect_to root_path if @userid == nil
   end
 
   def show
-=begin
-    @sessionid = session[:user_id]
-    @usersimg = Image.find_by_author_id(@sessionid)
-=end
+    @img = Image.find_by_id(params[:id])
   end
   
   def new
@@ -48,6 +49,10 @@ class ImagesController < ApplicationController
     else
       redirect_to new_image_path, :notice => "投稿内容に不備があります"
     end
+  end
+
+  def login_check
+    is_login
   end
   
 end

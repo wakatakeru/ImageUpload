@@ -17,9 +17,11 @@
         <tbody>
           <% if @userimg != nil %>
             <% @userimg.each do |f| %>
-            <td><%= f[:id] %></td>
-            <td><%= link_to "#{f[:title]}", f[:path] %></td>
-            <td><%= f[:updated_at] %></td>
+              <tr>
+                <td><%= f[:id] %></td>
+                <td><%= link_to "#{f[:title]}", image_path(f[:id]) %></td>
+                <td><%= f[:updated_at] %></td>
+              </tr>
             <% end %>
           <% end %>
         </tbody>

@@ -1,0 +1,13 @@
+<div align="center">
+  <h1>ImageUpload :: Image</h1>
+  <div class="container-fluid" style="padding: 10px 20px 10px 20px">
+    <hr>
+      <h4><%= @img.title %></h4>
+    <hr>
+      <%= link_to image_tag("#{@img.path}", :width => "400"), "#{@img.path}", :target=>["_blank"]%>
+    <hr>
+  </div>
+  <div class="container-fluid" style="padding: 10px 20px 10px 20px">
+    <%= link_to '一覧表示へ戻る', images_path, class: "btn btn-success btn-lg btn-block" %>
+  </div>
+</div>
