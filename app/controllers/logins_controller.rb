@@ -15,8 +15,7 @@ class LoginsController < ApplicationController
       session[:user_id] = user.id
       redirect_to images_path
     else
-      flash.now.alert = "認証エラー。もう一度入力してください"
-      render "new"
+      redirect_to root_path, :notice => "認証エラー。 IDまたはパスワードが違います。"
     end
   end
 
