@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @param = params[:id]
+    @param = params[:id].to_i
     @userimg = Array.new
     @params = @param.to_i
     @user = User.find(@params)
