@@ -20,7 +20,7 @@
       <% @imgs.reverse_each do |item| %>
       <p><h3><%= item.title %></h3></p>
       <p><%= link_to image_tag("#{item.thumbnail_path}"), image_path(item.id)%></p>
-      <p><small>Posted by <%= link_to "#{User.find(item.author_id)[:login_id]}", user_path(item.author_id) %></small></p>
+      <p><small>Posted by <%= link_to "#{item.user[:login_id]}", user_path(item.user[:id]) %></small></p>
       <p><small><%= "#{item.updated_at}" %></small></p>
       <hr />
       <% end %>

@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new
+    user = User.create
     user.login_id = params['user']['login_id']
     user.email    = params['user']['email']
     user.password = params['user']['password']
@@ -75,6 +75,12 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    # 応急的な削除処理
+    img = Image.all
+    img.each do |item|
+      item.delete if item[:author_id].to_i == params[:id].to_i
+    end
+
     User.find(params[:id]).delete
     redirect_to images_path, :notice => "ユーザの削除を完了しました"
   end
