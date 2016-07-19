@@ -6,10 +6,8 @@
   <% if current_user != nil %>
     
     <div class="container-fluid" style="padding: 10px 20px 10px 20px">
-      <%= link_to '画像を新規投稿する', new_image_path, class: "btn btn-primary btn-lg btn-block"%>
-    </div>
-    <div class="container-fluid" style="padding: 10px 20px 10px 20px">
-      <%= link_to 'Myページ', user_path(@userid), class: "btn btn-success btn-lg btn-block"%>
+      <p><%= link_to '画像を新規投稿する', new_image_path, class: "btn btn-primary btn-lg btn-block"%></p>
+      <p><%= link_to 'Myページ', user_path(@userid), class: "btn btn-success btn-lg btn-block"%></p>
     </div>
 
     <div class="container-fluid" style="padding: 10px 20px 10px 20px">
