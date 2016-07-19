@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :images, dependent: :destroy
   has_secure_password
 
   validates :login_id,

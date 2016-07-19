@@ -9,6 +9,7 @@ class ImagesController < ApplicationController
   def index
     @imgs = Image.all
     @userid = session[:user_id]
+    @user   = User.find(session[:user_id].to_i)
     # redirect_to root_path if @userid == nil
   end
 

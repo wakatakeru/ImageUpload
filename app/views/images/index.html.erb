@@ -12,6 +12,9 @@
       <% if current_user != nil %>
       <p><%= link_to '画像を新規投稿する', new_image_path, class: "btn btn-primary btn-lg btn-block"%></p>
       <p><%= link_to 'Myページ', user_path(@userid), class: "btn btn-success btn-lg btn-block"%></p>
+      <% if @user[:is_admin] == true %>
+      <p><%= link_to 'ユーザ一覧ページ', users_path, class: "btn btn-warning btn-lg btn-block"%></p>
+      <% end %>
       <p><%= link_to 'ログアウトする', login_path, class: "btn btn-danger btn-lg btn-block", data: { :confirm => 'ログアウトします。よろしいですか？' }, :method => :delete %></p>
       <% end %>
       <% @imgs.reverse_each do |item| %>

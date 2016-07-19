@@ -10,6 +10,7 @@
             <th>ログインID</th>
             <th>メールアドレス</th>
             <th>権限</th>
+            <th>操作</th>
           </tr>
         </tread>
         <% @users.each do |f| %>
@@ -17,10 +18,15 @@
           <td><%= f.id %></td>
           <td><%= link_to "#{f.login_id}", {:action => :show, :id => f.id} %></td>
           <td><%= f.email %></td>
-          <% if f.is_admin != nil %>
+          <% if f.is_admin == true %>
           <td><%= "あり" %></td>
           <% else %>
           <td><%= "なし" %></td>
+          <% end %>
+          <% if f.is_admin != true%>
+          <td><%= link_to "削除", user_path(f.id), :method => "delete", :class => "btn btn-danger btn-xs", data: {confirm: "ユーザ #{f.login_id} を削除します。よろしいですか？"} %></td>
+          <% else %>
+          <td>削除できません</td>
           <% end %>
         </tbody>
         <% end %>

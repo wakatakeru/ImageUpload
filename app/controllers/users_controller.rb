@@ -4,6 +4,9 @@ class UsersController < ApplicationController
   before_filter :login_check, :except => ['new', 'create']
   
   def index
+    session_id = session[:user_id]
+    user = User.find(session_id.to_i)
+    redirect_to images_path, :notice => "該当ページを表示する権限がありません" if user[:is_admin] != true
     @users = User.all
   end
 
@@ -27,6 +30,7 @@ class UsersController < ApplicationController
     
   def new
     @user = User.new
+    flash[:notice] = "このアカウントには管理者権限が付与されます" if User.all.empty?
   end
 
   def create
@@ -35,14 +39,23 @@ class UsersController < ApplicationController
     user.email    = params['user']['email']
     user.password = params['user']['password']
     user.bio      = params['user']['bio']
+    if User.all.empty? == false
+      user.is_admin = false
+      message = ""
+    else
+      user.is_admin = true
+      message = "このアカウントに管理者権限を付与しました"
+    end
+    
     if user.save
-      redirect_to login_path, :notice => "正常に登録しました！"
+      redirect_to login_path, :notice => "正常に登録しました！#{message}"
     else
       redirect_to new_user_path, :notice => "入力内容に不備がありました。もう一度入力してください。"
     end
   end
 
   def edit
+    redirect_to images_path, :notice => "該当ページを表示する権限がありません" if session[:user_id].to_s != params[:id] 
     @user = User.find(params[:id])
   end
 
@@ -61,6 +74,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    User.find(params[:id]).delete
+    redirect_to images_path, :notice => "ユーザの削除を完了しました"
+  end
+  
   private
   
   def login_check
