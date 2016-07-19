@@ -44,7 +44,7 @@ class UsersController < ApplicationController
       message = ""
     else
       user.is_admin = true
-      message = "このアカウントに管理者権限を付与しました"
+      message = "アカウント #{user.login_id} に管理者権限を付与しました"
     end
     
     if user.save
