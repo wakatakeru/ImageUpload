@@ -56,6 +56,7 @@ class ImagesController < ApplicationController
   end
 
   def edit
+    redirect_to images_path, :notice => "ページを表示する権限がありません" if params[:id].to_i != current_user[:id].to_i
     @img = Image.find(params[:id])
   end
 
