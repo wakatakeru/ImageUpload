@@ -1,36 +1,37 @@
-<div align="center">
-  <h1>ImageUpload :: Welcome</h1>
-  <h3>新規のユーザを作成します</h3>
-  <h5>* は必須項目です</h5>
-  <h4><font color="red"><strong><%= notice %></strong></font></h4>
+<div class="container">
+  <div class="row">
+    <h1 class="text-center">ImageUpload :: Welcome</h1>
+    <h3 class="text-center">新規のユーザを作成します</h3>
+    <h5 class="text-center">* は必須項目です</h5>
+    <h4 class="text-center">
+      <font color="red">
+        <strong><%= notice %></strong>
+      </font>
+    </h4>
+    <div class="col-xs-0 col-sm-1 col-md-1"></div>
+    <div class="col-xs-12 col-sm-10 col-md-10">
+      <%= form_for @user do |f| %>
+      <p><h4>* ログインID</h4></p>
+      <p>
+        <%= f.text_field :login_id, :class => "form-control", :placeholder => "英数字のみ(他ユーザと重複するとエラーになります)" %>
+      </p>
+      <p><h4>* メールアドレス</h4></p>
+      <p>
+        <%= f.text_field :email, :class => "form-control", :placeholder => "英数字と記号のみ" %>
+      </p>
+      <p><h4>* パスワード</h4></p>
+      <p>
+        <%= f.password_field :password, :class => "form-control", :placeholder => "英数字のみ, 大文字小文字は区別されます" %>
+      </p>
+      <p><h4>紹介メッセージ</h4></p>
+      <p>
+        <%= f.text_area :bio, :class => "form-control", :rows => "5"%>
+      </p>
+      <p>
+        <%= f.submit "登録", :class => "btn btn-primary btn-lg btn-block", data: {confirm: "ユーザ登録します。よろしいですか？"} %>
+      </p>
+      <% end %>
+    </div>
+    <div class="col-xs-0 col-sm-1 col-md-1"></div>
+  </div>
 </div>
-<div class="container-fruid" style="padding: 10px 20px 10px 20px">
-  <%= form_for @user do |f| %>
-    <div style="margin: 10px 0px 10px 0px">
-      <h4>* ログインID</h4>
-      <%= f.text_field :login_id, :class => "form-control", :placeholder => "英数字のみ(他ユーザと重複するとエラーになります)" %>
-    </div>
-
-    <div style="margin: 10px 0px 10px 0px">
-      <h4>* メールアドレス</h4>
-      <%= f.text_field :email, :class => "form-control", :placeholder => "英数字と記号のみ" %>
-    </div>
-
-    <div style="margin: 10px 0px 10px 0px">
-      <h4>* パスワード</h4>
-      <%= f.password_field :password, :class => "form-control", :placeholder => "英数字のみ, 大文字小文字は区別されます" %>
-    </div>
-
-    <div style="margin: 10px 0px 10px 0px">
-      <h4>紹介メッセージ</h4>
-      <%= f.text_area :bio, :class => "form-control", :rows => "5"%>
-    </div>
-
-    
-    <div class="container-fruid" style="padding: 20px 10px 15px 20px">
-    <%= f.submit "登録", :class => "btn btn-primary btn-lg btn-block", data: {confirm: "ユーザ登録します。よろしいですか？"} %>
-    </div>
-    
-  <% end %>
-</div>
-
