@@ -1,13 +1,23 @@
 <div class="container">
   <div class="row">
     <h1 class="text-center">ImageUpload :: Main</h1>
+    <!--
     <h4 class="text-center">
       <font color="red">
         <strong><%= notice %></strong>
       </font>
     </h4>
+    --->
     <div class="col-xs-0 col-sm-1 col-md-1"></div>
     <div class="col-xs-12 col-sm-10 col-md-10">
+      
+    <% if notice != nil %>
+      <div class="alert alert-info" role="alert">
+        <%= notice %>
+      </div>
+    <% end %>
+
+
 
       <% if current_user != nil %>
       <p><%= link_to '画像を新規投稿する', new_image_path, class: "btn btn-primary btn-lg btn-block"%></p>
