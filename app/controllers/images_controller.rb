@@ -17,7 +17,7 @@ class ImagesController < ApplicationController
     imgid = params[:id]
     @img = Image.find_by_id(imgid)
     @author_id  = @img.author_id.to_i
-    @session_id = session[:user_id]
+    @session_id = current_user[:id]
   end
   
   def new
@@ -46,7 +46,7 @@ class ImagesController < ApplicationController
       end
     end
 
-    img.author_id = session[:user_id]
+    img.author_id = current_user[:id]
     
     if img.save      
       redirect_to images_path, :notice => "投稿に成功しました。"

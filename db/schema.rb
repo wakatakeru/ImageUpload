@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20160709154014) do
 
   create_table "images", force: :cascade do |t|
     t.string   "title"
-    t.string   "author_id"
+    t.integer  "author_id"
     t.text     "path"
     t.text     "thumbnail_path"
     t.binary   "file"
