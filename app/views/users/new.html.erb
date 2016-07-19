@@ -3,13 +3,14 @@
     <h1 class="text-center">ImageUpload :: Welcome</h1>
     <h3 class="text-center">新規のユーザを作成します</h3>
     <h5 class="text-center">* は必須項目です</h5>
-    <h4 class="text-center">
-      <font color="red">
-        <strong><%= notice %></strong>
-      </font>
-    </h4>
     <div class="col-xs-0 col-sm-1 col-md-1"></div>
     <div class="col-xs-12 col-sm-10 col-md-10">
+      <% if notice != nil %>
+      <div class="alert alert-info" role="alert">
+        <%= notice %>
+      </div>
+      <% end %>
+
       <%= form_for @user do |f| %>
       <p><h4>* ログインID</h4></p>
       <p>
