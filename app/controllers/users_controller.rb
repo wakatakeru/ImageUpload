@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @user_id    = @params
     
     Image.all.each do |item|
-      if item[:author_id] == @param 
+      if item[:author_id].to_i == @param 
         @userimg.push(item)
       end
     end
