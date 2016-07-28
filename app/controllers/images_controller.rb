@@ -75,7 +75,12 @@ class ImagesController < ApplicationController
 
   def destroy
     img = Image.find(params[:id])
+    img_path = img[:path]
+    img_thumbnail_path = img[:thumbnail_path]
+    
     if img.destroy
+      File.delete("/public/img/#{img_path}")
+      File.delete("/public/img/#{img_thumbnail_path}")
       redirect_to images_path, :notice => "画像は正常に削除されました。"
     else
       redirect_to root_path, :notice => "画像は削除されません。"
