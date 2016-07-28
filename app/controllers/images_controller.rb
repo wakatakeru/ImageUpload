@@ -79,8 +79,8 @@ class ImagesController < ApplicationController
     img_thumbnail_path = img[:thumbnail_path]
     
     if img.destroy
-      File.delete("/public/img/#{img_path}")
-      File.delete("/public/img/#{img_thumbnail_path}")
+      File.delete("#{img_path}")
+      File.delete("#{img_thumbnail_path}")
       redirect_to images_path, :notice => "画像は正常に削除されました。"
     else
       redirect_to root_path, :notice => "画像は削除されません。"
