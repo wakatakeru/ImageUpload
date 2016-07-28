@@ -78,8 +78,6 @@ class UsersController < ApplicationController
     # 応急的な削除処理
     img = Image.all
     img.each do |item|
-      File.delete("/public/#{item[:path]}")
-      File.delete("/public/#{item[:thumbnail_path]}")
       item.delete if item[:author_id].to_i == params[:id].to_i
     end
 
