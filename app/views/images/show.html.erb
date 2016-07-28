@@ -1,25 +1,26 @@
-<div class="centainer">
-  <div class="row">
-  <h1 class="text-center">ImageUpload :: Image</h1>
-  <hr>
-  <div class="col-xs-0 col-sm-1 col-md-1"></div>
-  <div class="col-xs-12 col-sm-10 col-md-10">
-    <p><h4><%= @img.title %></h4></p>
+<div class="container">
+  <div class="row-fruid">
+    <h1 class="text-center">ImageUpload :: Image</h1>
     <hr>
-    <p>
-      <%= link_to image_tag("#{@img.path}", :class => "img-responsive"), "#{@img.path}", :target=>["_blank"]%>
-    </p>
-    <hr>
-    <p>
-      <%= link_to '一覧表示へ戻る', images_path, class: "btn btn-success btn-lg btn-block" %>
-    </p>
-    <% if @author_id == @session_id %>
-    <p>
-      <%= link_to '画像の情報を編集する', edit_image_path(params[:id]), class: "btn btn-warning btn-lg btn-block" %>
-    </p>
-    <p>
-      <%= link_to '画像を削除する', image_path(params[:id]), class: "btn btn-danger btn-lg btn-block", method: "delete", data: { confirm: "画像 [#{@img.title}] を削除します。よろしいですか？"} %>
-    </p>
-    <% end %>
+    <div class="col-xs-0 col-sm-1 col-md-1"></div>
+    <div class="col-xs-12 col-sm-10 col-md-10">
+      <p><h4><%= @img.title %></h4></p>
+      <hr>
+      <p>
+        <%= link_to image_tag("#{@img.path}", :class => "img-responsive"), "#{@img.path}", :target=>["_blank"]%>
+      </p>
+      <hr>
+      <p>
+        <%= link_to '一覧表示へ戻る', images_path, class: "btn btn-success btn-lg btn-block" %>
+      </p>
+      <% if @author_id == @session_id %>
+      <p>
+        <%= link_to '画像の情報を編集する', edit_image_path(params[:id]), class: "btn btn-warning btn-lg btn-block" %>
+      </p>
+      <p>
+        <%= link_to '画像を削除する', image_path(params[:id]), class: "btn btn-danger btn-lg btn-block", method: "delete", data: { confirm: "画像 [#{@img.title}] を削除します。よろしいですか？"} %>
+      </p>
+      <% end %>
+    </div>
   </div>
 </div>
