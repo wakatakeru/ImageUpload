@@ -76,13 +76,13 @@ class UsersController < ApplicationController
 
   def destroy
     # 応急的な削除処理
-    img = Image.all
-    img.each do |item|
-      item.delete if item[:author_id].to_i == params[:id].to_i
-    end
-
-    User.find(params[:id]).delete
-    redirect_to images_path, :notice => "ユーザの削除を完了しました"
+    # img = Image.all
+    # img.each do |item|
+    #   item.delete if item[:author_id].to_i == params[:id].to_i
+    # end
+    user = User.find(params[:id].to_i)
+    user.destroy
+    redirect_to users_path, :notice => "ユーザの削除を完了しました"
   end
   
   private
